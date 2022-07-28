@@ -20,7 +20,7 @@
         <br>
         <a href="{{ route('create') }}" class="btn btn-outline-dark"><i class="fa-solid fa-plus"></i></a>
         <a href="{{ route('categorias.index') }}" class="btn btn-outline-primary">CAT</a>
-        <a href="{{ route('user.index') }}" class="btn btn-outline-warning">USER</a>
+        <a href="{{ route('user.index') }}" class="btn btn-outline-warning">RANK</a>
         <a href="{{ route('logout') }}" class="btn btn-outline-danger">LOG-OUT</a>
         
         <div class="col-md-8 offset-md-2">

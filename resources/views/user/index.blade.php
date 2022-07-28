@@ -16,11 +16,33 @@
 </head>
 <body>
 
-    <a href="{{ route('register') }}" class="btn btn-success">+</a>
-
-    @foreach ($user as $u)
-        {{ $u->name }}
-    @endforeach
-    
-</body>
-</html>
+    <div class="container">
+        <br>
+        <a href="{{ route('index') }}" class="btn btn-outline-info"><i class="fa-solid fa-backward"></i></a>
+        <div class="col-md-6 offset-md-3 mt-5   ">
+            <table class="table text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Pontos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @php
+                            $n = 1;
+                        @endphp
+                        @foreach ($user as $u)
+                        <td>{{ $n }}</td>
+                        <td>{{ $u->name }}</td>
+                        <td>{{ $u->points }}</td>
+                        @php
+                            $n++;
+                        @endphp
+                        @endforeach
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
