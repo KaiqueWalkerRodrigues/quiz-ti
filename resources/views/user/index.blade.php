@@ -29,19 +29,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        @php
+                    @php
                             $n = 1;
-                        @endphp
+                            @endphp
                         @foreach ($user as $u)
+                        <tr>
                         <td>{{ $n }}</td>
                         <td>{{ $u->name }}</td>
                         <td>{{ $u->points }}</td>
+                        </tr>
                         @php
                             $n++;
                         @endphp
                         @endforeach
-                    </tr>
                 </tbody>
             </table>
         </div>

@@ -15,6 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
+        $user = User::orderbydesc('points')->limit(10)->get();
         return view('user.index')
             ->with(compact('user'));
     }
