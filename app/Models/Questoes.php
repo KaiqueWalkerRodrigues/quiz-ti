@@ -26,4 +26,9 @@ class Questoes extends Model
     {
         return $this->hasMany(Respostas::class,'id_questao','id_questao');
     }
+
+    public function questoes_usuarios()
+    {
+       return $this->hasMany(User::class,'id_questao','id_questao');
+    }
 }

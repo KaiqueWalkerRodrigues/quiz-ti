@@ -1,6 +1,7 @@
 
 <x-guest-layout>
     <x-auth-card>
+
         <x-slot name="logo">
             <a href="/">
                 <img src="img/quiz-quadrado.png" alt="Logo">
