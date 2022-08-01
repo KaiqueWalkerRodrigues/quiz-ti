@@ -3,7 +3,7 @@
 @endsection
 @section('conteudo')
         <br>
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-10 offset-md-1">
             <br>
             <table class="table table-hover">
                 <thead>
