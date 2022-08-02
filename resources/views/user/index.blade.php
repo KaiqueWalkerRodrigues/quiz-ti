@@ -16,8 +16,8 @@
                 </thead>
                 <tbody>
                     @php
-                            $n = 1;
-                            @endphp
+                        $n = 1;
+                    @endphp
                         @foreach ($user as $u)
                         <tr>
                         <td>{{ $n }}</td>

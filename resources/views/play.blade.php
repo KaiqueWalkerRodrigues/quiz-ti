@@ -6,10 +6,10 @@
         <br>
 
         @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+            <div class="alert alert-success">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endif
 
         @if (session('danger'))
@@ -23,14 +23,14 @@
             <a href="{{ route('index') }}" class="btn btn-outline-info"><i class="fa-solid fa-backward"></i></a>
         <br><br>
 
+        @if($questoes)
+
         <form method="POST" action="{{ route('corfirma_resposta') }}">
             @csrf
 
-            @foreach( $questoes as $q)
-
-                <input type="hidden" name="id_quiz" id="id_quiz" value="{{ $q->id_quiz }}">
-                <input type="hidden" name="id_questao" id="id_questao" value="{{ $q->id_questao }}">
-                <h4>{{ $q->titulo }}</h4>
+                <input type="hidden" name="id_quiz" id="id_quiz" value="{{ $questoes->id_quiz }}">
+                <input type="hidden" name="id_questao" id="id_questao" value="{{ $questoes->id_questao }}">
+                <h4>{{ $questoes->titulo }}</h4>
 
                 <br>
                 @php
@@ -48,7 +48,6 @@
                         $n++
                     @endphp
                      {{-- echo $indice .' - '.$respostas[$indice].'<br>'; --}}
-                @endforeach
 
                 {{-- @foreach($respostas->where('id_questao',$q->id_questao)->where('certa','0')->random(4) as $res)
                     <div class="form-check">
@@ -61,7 +60,7 @@
                         $n++
                     @endphp
                 @endforeach --}}
-{{-- 
+                {{-- 
                 @foreach($respostas->where('id_questao',$q->id_questao)->where('certa','1') as $res)
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $res->id_resposta }}">
@@ -71,7 +70,7 @@
                     </div>
                 @endforeach --}}
 
-                
+                @endforeach
 
                 <br>
                 
@@ -81,9 +80,14 @@
                     </button>
                 </div>
 
-            @endforeach
-
         </form>
+
+        @else
+            <div class="alert alert-success">
+                PARABÉNS VOCÊ FINALIZOU O QUIZ!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
     </div>
 

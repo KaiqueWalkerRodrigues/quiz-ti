@@ -22,7 +22,7 @@ class QuestoesUsuarios extends Model
 
     protected $fillable = ['id_questao','id_user'];
 
-     public function __construct(int $id_user, int $id_questao)
+     public function __construct(int $id_user = null, int $id_questao = null)
     {
         $this->attributes['id_user'] = $id_user;
         $this->attributes['id_questao'] = $id_questao;

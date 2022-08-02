@@ -119,17 +119,30 @@ class QuizController extends Controller
 
         //Captura o id do usuario logado
         $id_user = Auth::user()->id;
+        $repetidas = new QuestoesUsuarios();
+        $repetidas = $repetidas::select('id_questao')->where('id_user',$id_user)->get();
+
+        // $repetidas = $repetidas->toArray();
+
         //Sorteia uma questão com o id do quiz escolhido
         $questoes = Questoes::where('id_quiz',$id)
+        ->whereNotIn('id_questao',$repetidas)
         ->inRandomOrder()
         ->first();
+        
+        if ($questoes == null) {
+            $questoes = null;
+            return view('play', ['id'=>$id])
+                ->with(compact('questoes'));
+        }else{
 
         //Sorteia 4 Respostas Erradas
         $respostasErradas = Respostas::select('id_resposta', 'resposta')
                                         ->where('id_questao',$questoes->id_questao)
                                         ->where('certa','0')
                                         ->inRandomOrder()
-                                        ->limit(4)->get();
+                                        ->limit(4)
+                                        ->get();
 
         //Pega a respsota certa da questão sorteada
        $respostaCerta = Respostas::select('id_resposta', 'resposta')
@@ -148,22 +161,25 @@ class QuizController extends Controller
        }
 
        shuffle($ordem);
-    //    echo '<pre>';
-    //    echo 'Todas<br>';
-    //     print_r( $todas);       
-    //     echo '<hr>';
-    //     echo 'Respostas<br>';
-    //     print_r($respostas);
-    //     echo '<hr>';
-    //     echo 'Ordem bagunçada<br>';
-    //     print_r($ordem);
-    //     echo '<hr>';
-    //     echo 'Saida para o Quiz<br>';
+        //    echo '<pre>';
+        //    echo 'Todas<br>';
+        //     print_r( $todas);       
+        //     echo '<hr>';
+        //     echo 'Respostas<br>';
+        //     print_r($respostas);
+        //     echo '<hr>';
+        //     echo 'Ordem bagunçada<br>';
+        //     print_r($ordem);
+        //     echo '<hr>';
+        //     echo 'Saida para o Quiz<br>';
 
         return view('play')
             ->with(compact('id','questoes','respostas','ordem'));
 
+        }
+
     }
+
 
     public function corfirma_resposta(request $resposta)
     {   
@@ -184,7 +200,7 @@ class QuizController extends Controller
         {
             // Encontra as informações dos usuarios logados
             $user = User::find(Auth::user()->id);
-            $user->points += 0;
+            $user->points += 100;
             $user->save();
 
             

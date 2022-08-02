@@ -2,7 +2,8 @@
 @section('menu')
 @endsection
 @section('conteudo')
-        <br>
+        <br>    
+        <a href="{{ route('create') }}" class="btn btn-outline-dark">+</a>
         <div class="col-md-10 offset-md-1">
             <br>
             <table class="table table-hover">
