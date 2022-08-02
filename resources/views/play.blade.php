@@ -26,9 +26,10 @@
         <form method="POST" action="{{ route('corfirma_resposta') }}">
             @csrf
 
-            @foreach( $questoes->where('id_quiz',$id)->random(1) as $q)
+            @foreach( $questoes as $q)
 
                 <input type="hidden" name="id_quiz" id="id_quiz" value="{{ $q->id_quiz }}">
+                <input type="hidden" name="id_questao" id="id_questao" value="{{ $q->id_questao }}">
                 <h4>{{ $q->titulo }}</h4>
 
                 <br>
@@ -36,7 +37,20 @@
                     $n = 1
                 @endphp
 
-                @foreach($respostas->where('id_questao',$q->id_questao)->where('certa','0')->random(4) as $res)
+                @foreach($ordem as $indice)
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $indice }}">
+                        <label class="form-check-label" for="flexRadioDefault{{ $n }}">
+                            {{ $respostas[$indice] }}
+                        </label>
+                    </div>
+                    @php
+                        $n++
+                    @endphp
+                     {{-- echo $indice .' - '.$respostas[$indice].'<br>'; --}}
+                @endforeach
+
+                {{-- @foreach($respostas->where('id_questao',$q->id_questao)->where('certa','0')->random(4) as $res)
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $res->id_resposta }}">
                         <label class="form-check-label" for="flexRadioDefault{{ $n }}">
@@ -46,17 +60,18 @@
                     @php
                         $n++
                     @endphp
-                @endforeach
-
+                @endforeach --}}
+{{-- 
                 @foreach($respostas->where('id_questao',$q->id_questao)->where('certa','1') as $res)
                     <div class="form-check">
-                        <input type="hidden" name="certa" id="certa" value="{{ $res->id_resposta }}">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $res->id_resposta }}">
                         <label class="form-check-label" for="flexRadioDefault{{ $n }}">
                                 {{$res->resposta}}
                         </label>
                     </div>
-                @endforeach
+                @endforeach --}}
+
+                
 
                 <br>
                 

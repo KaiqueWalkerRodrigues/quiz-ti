@@ -22,6 +22,12 @@ class QuestoesUsuarios extends Model
 
     protected $fillable = ['id_questao','id_user'];
 
+     public function __construct(int $id_user, int $id_questao)
+    {
+        $this->attributes['id_user'] = $id_user;
+        $this->attributes['id_questao'] = $id_questao;
+    }
+
     public function questoes()
     {
         return $this->hasMany(Questoes::class,'id_quiz','id_quiz');

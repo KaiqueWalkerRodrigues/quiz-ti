@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\{
-    Quiz,Questoes,Respostas,Categorias,User
+    Quiz,Questoes,Respostas,Categorias,User,QuestoesUsuarios
 };
 
 class QuizController extends Controller
@@ -112,23 +112,86 @@ class QuizController extends Controller
             ->back();
     }
 
+    // Função para levar o usuario para a view ('play') e leva todas questões e respostas para ela.
     public function play(int $id)
     {
-        $questoes = Questoes::all();
-        $respostas = Respostas::all();
+        // $id = ID DO QUIZ
+
+        //Captura o id do usuario logado
+        $id_user = Auth::user()->id;
+        //Sorteia uma questão com o id do quiz escolhido
+        $questoes = Questoes::where('id_quiz',$id)
+        ->inRandomOrder()
+        ->first();
+
+        //Sorteia 4 Respostas Erradas
+        $respostasErradas = Respostas::select('id_resposta', 'resposta')
+                                        ->where('id_questao',$questoes->id_questao)
+                                        ->where('certa','0')
+                                        ->inRandomOrder()
+                                        ->limit(4)->get();
+
+        //Pega a respsota certa da questão sorteada
+       $respostaCerta = Respostas::select('id_resposta', 'resposta')
+                                        ->where('id_questao',$questoes->id_questao)
+                                        ->where('certa','1')
+                                        ->limit(1)
+                                        ->get();
+
+       //Junta os arrays
+       $todas =  array_merge($respostasErradas->toArray(), $respostaCerta->toArray());
+
+       //transformando os indicies nos id_resposta
+       foreach ($todas as $resposta) {
+        $ordem[] = $resposta['id_resposta'];
+        $respostas[$resposta['id_resposta']] = $resposta['resposta'];
+       }
+
+       shuffle($ordem);
+    //    echo '<pre>';
+    //    echo 'Todas<br>';
+    //     print_r( $todas);       
+    //     echo '<hr>';
+    //     echo 'Respostas<br>';
+    //     print_r($respostas);
+    //     echo '<hr>';
+    //     echo 'Ordem bagunçada<br>';
+    //     print_r($ordem);
+    //     echo '<hr>';
+    //     echo 'Saida para o Quiz<br>';
+
         return view('play')
-            ->with(compact('questoes','id','respostas'));
+            ->with(compact('id','questoes','respostas','ordem'));
+
     }
 
     public function corfirma_resposta(request $resposta)
     {   
+        //Id do quiz
         $id = $resposta->id_quiz;
-        if($resposta->certa == $resposta->flexRadioDefault)
+
+        //Id da questão
+        $id_questao = $resposta->id_questao;
+        
+        //Fazendo um Select no banco e retornando a resposta certa da questão
+        $certa = Respostas::where('id_questao',$id_questao)
+                        ->where('certa',1)
+                        ->first()
+                        ;
+
+        //Verifica se a resposta está valida
+        if($certa->id_resposta == $resposta->flexRadioDefault)
         {
+            // Encontra as informações dos usuarios logados
             $user = User::find(Auth::user()->id);
-            $user->points += 100;
+            $user->points += 0;
             $user->save();
 
+            
+            // Cadastra na tabela auxiliar o id_usuario e o id_questao
+            $questoesusuarios = new QuestoesUsuarios(Auth::user()->id,$id_questao);
+            $questoesusuarios->save();           
+            
             return redirect()
                 ->route('play', ['id'=>$id])
                 ->with('success', 'Você acertou!');
