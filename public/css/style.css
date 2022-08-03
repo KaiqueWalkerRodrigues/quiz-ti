@@ -28,8 +28,8 @@
 
   #menu-toggle {
     position: absolute;
-    left: -3px;
-    top: 8vh;
+    left: 4px;
+    top: 93vh;
     transition: all 0.5s ease;
   }
   /* /topo (navbar) */
@@ -64,7 +64,7 @@
   width: 0;
   height: 100%;
   margin-top: 4%;
-  margin-left: -250px;
+  margin-left: 5%;
   overflow-y: auto;
   background:#000000;
   -webkit-transition: all 0.5s ease;
