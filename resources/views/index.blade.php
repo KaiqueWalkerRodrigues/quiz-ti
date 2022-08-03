@@ -9,7 +9,8 @@
             
             @foreach ($quiz as $q)
             <div class="col-md-3 mt-5 text-center">
-                <div class="card" style="width: 20rem; height: 30rem;" id="degrade-1">
+                <div class="card" style="width: 19rem; height: 29rem;" id="degrade-1">
+                    <div class="card ms-4 mt-4" style="width: 16rem; height: 26rem; bg-white">
                     <div class="card-body">
                       <h5 class="card-title">{{ $q->titulo }}</h5>
                       <p class="card-text">{{ $q->descricao}}</p>
@@ -20,6 +21,7 @@
                         <a href="{{ route('edit', ['id'=>$q->id_quiz]) }}" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i></a>
                         <a href="{{ route('destroy', ['id'=>$q->id_quiz]) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                     </footer>
+                    </div>
                     </div>
                     </div>
                   </div>
