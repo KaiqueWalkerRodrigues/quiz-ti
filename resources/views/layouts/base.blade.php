@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- /CSS --}}
     {{-- Local --}}
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -26,9 +26,10 @@
     <nav id="menu" class="navbar">
         <div class="container-fluid">
             <a id="name-site" class="navbar-brand">
-                <img src="../img/LOGO.png" alt="" width="49" height="35" class="d-inline-block align-text-top">
-                </i></a>
-            <a href="#menu-toggle" class="btn btn-info" id="menu-toggle"> <i class="fa-solid fa-arrow-right"></i>
+                <img src="../img/quiz.png" alt="" width="49" height="35" class="d-inline-block align-text-top">
+                <i class="fa-solid fa-question">
+                </i> Quiz T.I</a>
+            <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"> <i id="icon" class="fa-solid fa-arrow-right"></i>
 
             </a>
           <form id="search" class="d-flex" role="search">
@@ -59,7 +60,7 @@
                 </a>
             </li> --}}
 
-            @if(Auth::user()->id == 5)
+            @if(Auth::user()->id == 3)
             {
                 <li>
                     <a href="{{ route('index') }}"><i class="fa-solid fa-question"></i></i><span>Quiz</span></a>
@@ -91,26 +92,11 @@
             <li>
                 <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
             </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
-            </li>
+            
         </ul>
     </div>
     <!-- /sidebar-->
          {{-- CONTEUDO --}}
-         <br>
          <br>
          <br>
          @yield('conteudo')
@@ -130,7 +116,9 @@
         if( aberto == false)
         {
             $("#sidebar-wrapper ").css("margin-left","250px");
-            $("#menu-toggle").css ("left", "14%");
+            $("#menu-toggle").css ("left", "10%");
+            $("#icon").removeClass("fa-solid fa-arrow-right");
+            $("#icon").addClass("fa-solid fa-arrow-left");
             $("#wrapper ").css("padding-left","250px");
             $(".sidebar-nav li span").css("display", "inline-block");
             $(".sidebar-nav li").css("margin-left", "0px");
@@ -140,10 +128,10 @@
         else
         {
             $("#sidebar-wrapper ").css("margin-left","5%");
-            $("#menu-toggle").css ("left", "3.5%");
-            // $(".sidebar-nav li").css("margin-right", "100%");
+            $("#menu-toggle").css ("left", "4px");
+            $("#icon").removeClass("fa-solid fa-arrow-left");
+            $("#icon").addClass("fa-solid fa-arrow-right");
             $("#wrapper ").css("padding-left","60px");
-            // $("#page-content-wrapper").css("margin-left", "2%");
             $(".sidebar-nav li span").css("display", "none");
             $(".sidebar-nav li").css("margin-right", "30px");
             $(".sidebar-nav li").css("text-align", "right");
