@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\{
-    Quiz,Questoes,Respostas,Categorias,User,QuestoesUsuarios
+    Quiz,Questoes,Respostas,Categorias,User,QuestoesUsuarios,
+    RespostasUsuarios
 };
 
 class QuizController extends Controller
@@ -119,8 +120,12 @@ class QuizController extends Controller
 
         //Captura o id do usuario logado
         $id_user = Auth::user()->id;
+
+        // retira as questoes e respostas erradas dos usuarios
         $repetidas = new QuestoesUsuarios();
         $repetidas = $repetidas::select('id_questao')->where('id_user',$id_user)->get();
+        $respostas_repetidas = new RespostasUsuarios();
+        $respostas_repetidas = $respostas_repetidas::select('id_resposta')->where('id_user',$id_user)->get();
 
         // $repetidas = $repetidas->toArray();
 
@@ -136,9 +141,10 @@ class QuizController extends Controller
                 ->with(compact('questoes'));
         }else{
 
-        //Sorteia 4 Respostas Erradas
+        //Sorteia 4 Respostas Erradas que nunca foram usadas com este usuario
         $respostasErradas = Respostas::select('id_resposta', 'resposta')
                                         ->where('id_questao',$questoes->id_questao)
+                                        ->whereNotIn('id_resposta',$respostas_repetidas)
                                         ->where('certa','0')
                                         ->inRandomOrder()
                                         ->limit(4)
@@ -210,9 +216,12 @@ class QuizController extends Controller
             
             return redirect()
                 ->route('play', ['id'=>$id])
-                ->with('success', 'Você acertou!');
+                ->with('success', 'Você acertou!!! 100 Pontos foram adicionados a sua conta!');
         }
         else{
+            $respostausuarios = new RespostasUsuarios(Auth::user()->id,$resposta->flexRadioDefault);
+            $respostausuarios->save();
+
             return redirect()
                 ->route('play', ['id'=>$id])
                 ->with('danger', 'Você errou!');
