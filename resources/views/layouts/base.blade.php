@@ -26,9 +26,8 @@
     <nav id="menu" class="navbar">
         <div class="container-fluid">
             <a id="name-site" class="navbar-brand">
-                <img src="../../img/quiz.png" alt="" width="49" height="35" class="d-inline-block align-text-top">
-                <i class="fa-solid fa-question">
-                </i> Quiz T.I</a>
+                <img src="../img/LOGO.png" alt="" width="49" height="35" class="d-inline-block align-text-top">
+                </i></a>
             <a href="#menu-toggle" class="btn btn-info" id="menu-toggle"> <i class="fa-solid fa-arrow-right"></i>
 
             </a>
