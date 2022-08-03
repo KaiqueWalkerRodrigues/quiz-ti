@@ -34,8 +34,9 @@ class QuizController extends Controller
     {
         $quiz = null;
         $categoria = Categorias::all();
+        $user = Auth::user();
         return view('form')
-            ->with(compact('quiz','categoria'));
+            ->with(compact('quiz','categoria','user'));
     }
 
     /**
