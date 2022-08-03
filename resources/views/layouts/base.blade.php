@@ -20,18 +20,12 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
-    <div class="container mt-3">
-        {{-- <div > --}}
-    <nav id="menu" class="navbar">
-        <div class="container-fluid">
-            <a id="name-site" class="navbar-brand">
-                <img src="../img/quiz.png" alt="" width="49" height="35" class="d-inline-block align-text-top">
-                <i class="fa-solid fa-question">
-                </i> Quiz T.I</a>
-            <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"> <i id="icon" class="fa-solid fa-arrow-right"></i>
-
-            </a>
+    <div class="container">
+        <div class="row">
+            <nav id="menu" class="navbar">
+                <div class="container-fluid">
+                    <a id="name-site" class="navbar-brand"><img src="../img/LOGO.png" alt="" width="30" height="30" class="d-inline-block align-text-top"></a>
+                        <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"> <i id="icon" class="fa-solid fa-arrow-right"></i></a>
           <form id="search" class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Pesquisa" aria-label="Search">
             <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i></button>
@@ -46,7 +40,9 @@
           </form>
         </div>
       </nav>
-  {{-- </div> --}}
+    
+    
+
   
   <div id="wrapper">
 
@@ -102,7 +98,8 @@
          @yield('conteudo')
          {{-- /CONTEUDO --}}
     </div>
-
+</div>
+</div>
 
 {{-- JS --}}
 <script src="{{ asset('js/app.js') }}" defer></script>
