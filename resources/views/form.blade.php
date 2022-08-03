@@ -45,7 +45,7 @@
                 </select>
                 {{-- <input type="text" class="form-control" id="id_categoria" name="id_categoria" value="{{ $quiz ? $quiz->id_categoria : '' }}" required> --}}
             </div>
-                <input type="hidden" class="form-control" id="id_usuario" name="id_usuario" value="{{ $user->id }}" required>
+                <input type="hidden" class="form-control" id="id_user" name="id_user" value="{{ $user->id }}" required>
             <div class="col-md-4">
                 <label for="descricao" class="form-label">Descrição</label>
                 <textarea name="descricao" id="descricao" name="descricao" cols="30" rows="3" class="form-control">{{ $quiz ? $quiz->descricao : '' }}</textarea>
