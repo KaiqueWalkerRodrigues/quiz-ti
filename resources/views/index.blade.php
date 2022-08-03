@@ -3,7 +3,10 @@
 @endsection
 @section('conteudo')
         <div class="row">
-            <a href="{{ route('create') }}" class="btn btn-outline-dark">+</a>
+            <div class="col-md-12 mt-5">
+                <a href="{{ route('create') }}" class="btn btn-outline-dark">ADICIONAR</a>
+            </div>
+            
             @foreach ($quiz as $q)
             <div class="col-md-3 mt-5 text-center">
                 <div class="card" style="width: 20rem; height: 30rem;" id="degrade-1">
