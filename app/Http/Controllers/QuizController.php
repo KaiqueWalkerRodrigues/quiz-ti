@@ -204,27 +204,31 @@ class QuizController extends Controller
         //Verifica se a resposta está valida
         if($certa->id_resposta == $resposta->flexRadioDefault)
         {
-            // Encontra as informações dos usuarios logados
+            // Encontra as informações dos usuarios logados e adicionado pontos ao perfil dele
             $user = User::find(Auth::user()->id);
             $user->points += 100;
             $user->save();
 
-            
             // Cadastra na tabela auxiliar o id_usuario e o id_questao
             $questoesusuarios = new QuestoesUsuarios(Auth::user()->id,$id_questao);
             $questoesusuarios->save();           
             
             return redirect()
                 ->route('play', ['id'=>$id])
-                ->with('success', 'Você acertou!!! 100 Pontos foram adicionados a sua conta!');
+                ->with('success', 'Você acertou!!! 100 Pontos foram adicionados á sua conta!');
         }
         else{
+            // Encontra as informações dos usuarios logados e adicionado pontos ao perfil dele
+            $user = User::find(Auth::user()->id);
+            $user->points -= 25;
+            $user->save();
+
             $respostausuarios = new RespostasUsuarios(Auth::user()->id,$resposta->flexRadioDefault);
             $respostausuarios->save();
 
             return redirect()
                 ->route('play', ['id'=>$id])
-                ->with('danger', 'Você errou!');
+                ->with('danger', 'Você errou!!! 25 pontos foram retirados da sua conta');
         };
     }
 
