@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\{
-    Quiz,Questoes,Respostas,Categorias,User,QuestoesUsuarios
+    Quiz,Questoes,Respostas,Categorias,User,QuestoesUsuarios,
+    RespostasUsuarios
 };
 
 class QuizController extends Controller
@@ -33,8 +34,9 @@ class QuizController extends Controller
     {
         $quiz = null;
         $categoria = Categorias::all();
+        $user = Auth::user();
         return view('form')
-            ->with(compact('quiz','categoria'));
+            ->with(compact('quiz','categoria','user'));
     }
 
     /**
@@ -119,8 +121,12 @@ class QuizController extends Controller
 
         //Captura o id do usuario logado
         $id_user = Auth::user()->id;
+
+        // retira as questoes e respostas erradas dos usuarios
         $repetidas = new QuestoesUsuarios();
         $repetidas = $repetidas::select('id_questao')->where('id_user',$id_user)->get();
+        $respostas_repetidas = new RespostasUsuarios();
+        $respostas_repetidas = $respostas_repetidas::select('id_resposta')->where('id_user',$id_user)->get();
 
         // $repetidas = $repetidas->toArray();
 
@@ -136,9 +142,10 @@ class QuizController extends Controller
                 ->with(compact('questoes'));
         }else{
 
-        //Sorteia 4 Respostas Erradas
+        //Sorteia 4 Respostas Erradas que nunca foram usadas com este usuario
         $respostasErradas = Respostas::select('id_resposta', 'resposta')
                                         ->where('id_questao',$questoes->id_questao)
+                                        ->whereNotIn('id_resposta',$respostas_repetidas)
                                         ->where('certa','0')
                                         ->inRandomOrder()
                                         ->limit(4)
@@ -198,24 +205,31 @@ class QuizController extends Controller
         //Verifica se a resposta está valida
         if($certa->id_resposta == $resposta->flexRadioDefault)
         {
-            // Encontra as informações dos usuarios logados
+            // Encontra as informações dos usuarios logados e adicionado pontos ao perfil dele
             $user = User::find(Auth::user()->id);
             $user->points += 100;
             $user->save();
 
-            
             // Cadastra na tabela auxiliar o id_usuario e o id_questao
             $questoesusuarios = new QuestoesUsuarios(Auth::user()->id,$id_questao);
             $questoesusuarios->save();           
             
             return redirect()
                 ->route('play', ['id'=>$id])
-                ->with('success', 'Você acertou!');
+                ->with('success', 'Você acertou!!! 100 Pontos foram adicionados á sua conta!');
         }
         else{
+            // Encontra as informações dos usuarios logados e adicionado pontos ao perfil dele
+            $user = User::find(Auth::user()->id);
+            $user->points -= 25;
+            $user->save();
+
+            $respostausuarios = new RespostasUsuarios(Auth::user()->id,$resposta->flexRadioDefault);
+            $respostausuarios->save();
+
             return redirect()
                 ->route('play', ['id'=>$id])
-                ->with('danger', 'Você errou!');
+                ->with('danger', 'Você errou!!! 25 pontos foram retirados da sua conta');
         };
     }
 
