@@ -903,11 +903,11 @@ select {
 }
 .bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-image: linear-gradient(#e178b3, #7d73f3);
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  background-image: url('/img/planodefundo.png');
 }
 .bg-gray-800 {
   --tw-bg-opacity: 1;
@@ -1042,7 +1042,7 @@ select {
 }
 .text-gray-700 {
   --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
+  color: black;
 }
 .text-gray-900 {
   --tw-text-opacity: 1;
@@ -1050,7 +1050,7 @@ select {
 }
 .text-gray-600 {
   --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
+  color: black;
 }
 .text-gray-400 {
   --tw-text-opacity: 1;
@@ -1369,7 +1369,7 @@ select {
   }
 
   .sm\:rounded-lg {
-    border-radius: 0.5rem;
+    border-radius: 4rem;
   }
 
   .sm\:px-6 {
