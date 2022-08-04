@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\{User,Avatar};
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -53,11 +53,12 @@ class UserController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(int $id)
+    public function show(string $name,int $id)
     {
         $user = User::find($id);
+        $avatar = Avatar::find($user->id_avatar);
         return view('user.show')
-            ->with(compact('user'));
+            ->with(compact('user','avatar'));
     }
 
     /**

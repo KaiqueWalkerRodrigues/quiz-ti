@@ -102,8 +102,10 @@ Route::post('/play/confirma', [QuizController::class, 'corfirma_resposta'])
     });
     
     Route::prefix('user')->middleware(['auth'])->group(function () {
-        Route::get('/',             [UserController::class, 'index'])
+        Route::get('/rank',             [UserController::class, 'index'])
                                     ->name('user.index');
+        Route::get('/{name}/{id}',             [UserController::class, 'show'])
+                                    ->name('user.show');
     });
 
 require __DIR__.'/auth.php';

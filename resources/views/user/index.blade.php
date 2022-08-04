@@ -10,6 +10,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
+                        <th>Avatar</th>
                         <th>Nome</th>
                         <th>Pontos</th>
                     </tr>
@@ -18,9 +19,15 @@
                     @php
                         $n = 1;
                     @endphp
+                        <style>
+                            .avatar{
+                                height: 50px;
+                            }
+                        </style>
                         @foreach ($user as $u)
                         <tr>
                         <td>{{ $n }}</td>
+                        <td><img src="/avatares/{{ $u->avatar->avatar }}" class="avatar" alt="..."></td>
                         <td>{{ $u->name }}</td>
                         <td>{{ $u->points }}</td>
                         </tr>

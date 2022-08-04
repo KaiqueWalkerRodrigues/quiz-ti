@@ -26,18 +26,29 @@
                 <div class="container-fluid">
                     <a id="name-site" class="navbar-brand"><img src="../../img/LOGO.png" alt="" width="30" height="30" class="d-inline-block align-text-top"></a>
                         <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"> <i id="icon" class="fa-solid fa-arrow-right"></i></a>
-          <form id="search" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Pesquisa" aria-label="Search">
+          
+        <style>
+            .pesquisa{
+                margin-right: 500px
+            }
+            .user{
+                margin-right: 25px
+            }
+            .avatar{
+                height: 25px;
+            }
+        </style>
+          <form id="search" class="d-flex pesquisa" role="search">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" aria-label="Search">
             <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i></button>
-            <div class="dropdown">
-                <button class="btn btn-info mr-2 ml-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ route('user.index') }}">{{ Auth::user()->name }}</a></li>
-                  <li><a class="dropdown-item" href="#">Editar</a></li>
-                  <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-                </ul>
-            </div>
-          </form>
+        </form>
+        <div class="dropdown">
+            <button class="btn btn-outline-info dropdown-toggle user" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{{ route('user.show',['id'=>Auth::user()->id,'name'=>Auth::user()->name]) }}">Meu Perfil</a></li>
+              <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+            </ul>
+        </div>
         </div>
       </nav>
     
@@ -55,15 +66,6 @@
                   <i class="fa-solid fa-bars"></i> <span> Menu </span> 
                 </a>
             </li> --}}
-
-            @if(Auth::user()->id == 3)
-            {
-                <li>
-                    <a href="{{ route('logout') }}"><i class="fa-solid fa-door-open"></i><span>Logout</span></a>
-                </li>
-            }
-            <br>
-            @endif
             <br>
             <li>
                 <a href="{{ route('index') }}"><i class="fa-solid fa-border-all"></i><span>Todos os temas</span></a>
