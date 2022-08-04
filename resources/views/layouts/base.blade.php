@@ -59,31 +59,20 @@
             @if(Auth::user()->id == 3)
             {
                 <li>
-                    <a href="{{ route('index') }}"><i class="fa-solid fa-question"></i></i><span>Quiz</span></a>
-                </li>
-                <li>
-                    <a href="{{ route('categorias.index') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>
-                </li>
-                <li>
-                    <a href="{{ route('user.index') }}"><i class="fa-solid fa-crown"></i><span>Rank</span></a>
-                </li>
-                <li>
                     <a href="{{ route('logout') }}"><i class="fa-solid fa-door-open"></i><span>Logout</span></a>
                 </li>
             }
             <br>
             @endif
+            <br>
             <li>
-                <a href="#"><i class="fa-solid fa-border-all"></i><span> Todos os temas</span></a>
+                <a href="{{ route('index') }}"><i class="fa-solid fa-border-all"></i><span>Todos os temas</span></a>
             </li>
             <li>
-                <a href="#"><i class="fa-solid fa-microchip"></i> <span>hardware </span></a>
+                <a href="{{ route('categorias.index') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>
             </li>
             <li>
-                <a href="#"><i class="fa-solid fa-network-wired"></i><span> Redes </span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-brands fa-ubuntu"></i><span> Sistemas </span></a>
+                <a href="{{ route('user.index') }}"><i class="fa-solid fa-crown"></i><span>Rank</span></a>
             </li>
             <li>
                 <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>

@@ -51,7 +51,7 @@ class QuizController extends Controller
         $quiz->save();
 
         return redirect()
-            ->route('index');
+            ->route('show', ['id'=>$quiz->id_quiz]);
     }
 
     /**
@@ -97,7 +97,7 @@ class QuizController extends Controller
         $quiz->fill($request->all());
         $quiz->save();
         return redirect()
-            ->route('index');
+            ->route('show', ['id'=>$quiz->id_quiz]);
     }
 
     /**

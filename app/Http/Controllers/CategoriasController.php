@@ -15,8 +15,9 @@ class CategoriasController extends Controller
     public function index()
     {
         $categoria = Categorias::all();
+        $cat = '';
         return view('categorias.index')
-            ->with(compact('categoria'));
+            ->with(compact('categoria','cat'));
     }
 
     /**
@@ -67,9 +68,10 @@ class CategoriasController extends Controller
      */
     public function edit(int $id)
     {
-        $categoria = Categorias::find($id);
-        return view('categorias.form')
-            ->with(compact('categoria'));
+        $cat = Categorias::find($id);
+        $categoria = Categorias::all();
+        return view('categorias.index')
+            ->with(compact('cat','categoria'));
     }
 
     /**

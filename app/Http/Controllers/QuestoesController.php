@@ -45,7 +45,7 @@ class QuestoesController extends Controller
         $questao->save();
 
         return redirect()
-            ->back();
+            ->route('questoes.edit',['id'=>$questao->id_questao]);
     }
 
     /**

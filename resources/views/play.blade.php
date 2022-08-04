@@ -38,45 +38,34 @@
                 @endphp
 
                 @foreach($ordem as $indice)
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $indice }}">
-                        <label class="form-check-label" for="flexRadioDefault{{ $n }}">
-                            {{ $respostas[$indice] }}
-                        </label>
-                    </div>
+                        <input type="radio" class="btn-check" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $indice }}" checked>
+                        <label class="btn btn-outline-dark col-2" for="flexRadioDefault{{ $n }}">{{ $respostas[$indice] }}</label>
                     @php
                         $n++
                     @endphp
-                     {{-- echo $indice .' - '.$respostas[$indice].'<br>'; --}}
 
-                {{-- @foreach($respostas->where('id_questao',$q->id_questao)->where('certa','0')->random(4) as $res)
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $res->id_resposta }}">
-                        <label class="form-check-label" for="flexRadioDefault{{ $n }}">
-                            {{$res->resposta}}
-                        </label>
-                    </div>
-                    @php
-                        $n++
-                    @endphp
-                @endforeach --}}
-                {{-- 
-                @foreach($respostas->where('id_questao',$q->id_questao)->where('certa','1') as $res)
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $res->id_resposta }}">
-                        <label class="form-check-label" for="flexRadioDefault{{ $n }}">
-                                {{$res->resposta}}
-                        </label>
-                    </div>
-                @endforeach --}}
+                {{--
+                    <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                    <label class="btn btn-outline-success" for="success-outlined">Checked success radio</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="danger-outlined">Danger radio</label>
+                --}}
+
+                {{-- <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $indice }}">
+                    <label class="form-check-label" for="flexRadioDefault{{ $n }}">
+                        {{ $respostas[$indice] }}
+                    </label>
+                </div> --}}
 
                 @endforeach
 
                 <br>
-                
-                <div class="col-md-2 offset-md-4">
+                <br>
+                <div class="col-md-2 offset-md-10">
                     <button type="submit" class="btn btn-success">
-                        Proximo >
+                        Confirmar</i>
                     </button>
                 </div>
 
