@@ -78,9 +78,10 @@ class QuizController extends Controller
         $quiz = Quiz::find($id);
         $id_cat = $quiz->id_categoria;
         $categorias = Categorias::all();
+        $user = Auth::user();
         $categoria = Categorias::find($id_cat);
         return view('form')
-            ->with(compact('quiz','categoria','categorias'));
+            ->with(compact('quiz','categoria','categorias','user'));
     }
 
     /**

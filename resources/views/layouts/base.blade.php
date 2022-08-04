@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- /CSS --}}
     {{-- Local --}}
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <nav id="menu" class="navbar">
                 <div class="container-fluid">
-                    <a id="name-site" class="navbar-brand"><img src="../img/LOGO.png" alt="" width="30" height="30" class="d-inline-block align-text-top"></a>
+                    <a id="name-site" class="navbar-brand"><img src="../../img/LOGO.png" alt="" width="30" height="30" class="d-inline-block align-text-top"></a>
                         <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"> <i id="icon" class="fa-solid fa-arrow-right"></i></a>
           <form id="search" class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Pesquisa" aria-label="Search">
@@ -93,6 +93,8 @@
     </div>
     <!-- /sidebar-->
          {{-- CONTEUDO --}}
+         <br>
+         <br>
          <br>
          <br>
          @yield('conteudo')
