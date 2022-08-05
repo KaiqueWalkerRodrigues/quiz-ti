@@ -28,20 +28,26 @@
                         <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"><i id="icon" class="fa-solid fa-arrow-right"></i></a>
           
         <style>
-            .pesquisa{
-                margin-right: 500px
+            #pesquisa{
+                margin-left: 450px;
+            }
+            #search{
+                margin-right:500px !important;
             }
             .user{
-                margin-right: 25px
+                margin-right: 25px;
             }
             .avatar{
                 height: 25px;
             }
         </style>
-          <form id="search" class="d-flex pesquisa" role="search">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" aria-label="Search">
-            <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i></button>
+
+        <form action="{{ route('pesquisa') }}" method="POST">
+            @csrf
+            <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" id="search" name="search">
+            <button class="btn btn-outline-info" type="submit" id="pesquisa"><i class="bi bi-search"></i></button>
         </form>
+
         <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle user" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
             <ul class="dropdown-menu dropdown-menu-dark">
