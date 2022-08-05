@@ -38,7 +38,7 @@
                 @endphp
 
                 @foreach($ordem as $indice)
-                        <input type="radio" class="btn-check" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $indice }}" checked>
+                        <input type="radio" class="btn-check" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $indice }}">
                         <label class="btn btn-outline-dark col-2" for="flexRadioDefault{{ $n }}">{{ $respostas[$indice] }}</label>
                     @php
                         $n++

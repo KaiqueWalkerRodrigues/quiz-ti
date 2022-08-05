@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\{User,Avatar};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -53,7 +54,7 @@ class UserController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(string $name,int $id)
+    public function show(int $id)
     {
         $user = User::find($id);
         $avatar = Avatar::find($user->id_avatar);
@@ -104,4 +105,24 @@ class UserController extends Controller
         return redirect()
             ->back();
     }
+
+    //leva para pagina de editar o avatar do usuario
+    public function editavatar(int $id)
+    {
+        $user = User::find($id);
+        $avatares = Avatar::all();
+        return view('user.avatar')
+            ->with(compact('user','avatares'));
+    }
+
+    //recebe as informações e edita o avatar do usuario
+    public function updateavatar(request $request, int $id)
+    {
+        $user = User::find($id);
+        $user->id_avatar = $request->id_avatar;
+        $user->save();
+        return redirect()   
+            ->route('user.show',['id'=>Auth::user()->id]);
+    }
+
 }
