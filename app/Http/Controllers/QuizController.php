@@ -240,7 +240,7 @@ class QuizController extends Controller
         $quiz = Quiz::where('titulo','like','%'.$pesquisado.'%')->get();
         $qtd = $quiz->count();
 
-        if($qtd > 1)
+        if($qtd >= 1)
             return view('pesquisa')
                 ->with(compact('quiz'));
         else{

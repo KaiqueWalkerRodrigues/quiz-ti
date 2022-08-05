@@ -32,7 +32,7 @@
                 margin-left: 450px;
             }
             #search{
-                margin-right:500px !important;
+                margin-right:625px !important;
             }
             .user{
                 margin-right: 25px;
@@ -66,12 +66,6 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-            {{-- <li class="sidebar-brand">
-                <a href="#">
-                  <img src="..." alt="" width="30" height="24" class="d-inline-block align-text-top">
-                  <i class="fa-solid fa-bars"></i> <span> Menu </span> 
-                </a>
-            </li> --}}
             <br>
             <li>
                 <a href="{{ route('index') }}"><i class="fa-solid fa-border-all"></i><span>Todos os temas</span></a>

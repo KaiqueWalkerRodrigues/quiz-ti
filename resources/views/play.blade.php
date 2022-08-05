@@ -2,11 +2,6 @@
 @section('menu')
 @endsection
 @section('conteudo')
-
-    @if(Auth::user()->id == $quiz->id_user and Auth::user()->id != 3)
-        @php redirect()->route('index'); @endphp
-    @endif
-
         <br>
 
         @if (session('success'))
