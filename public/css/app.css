@@ -1410,6 +1410,11 @@ select {
   .sm\:text-right {
     text-align: right;
   }
+
+.card {
+  border-radius: 10% !important;
+}
+
 }
 @media (min-width: 768px) {
 
