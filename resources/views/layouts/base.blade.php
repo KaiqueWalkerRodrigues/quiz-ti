@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="page-top">
         <div class="row">
             <nav id="menu" class="navbar">
                 <div class="container-fluid">
@@ -89,20 +89,22 @@
          <br>
          <br>
          @yield('conteudo')
+         <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
          {{-- /CONTEUDO --}}
     </div>
 </div>
 </div>
 
 {{-- JS --}}
-<script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 <!-- Menu Toggle Script -->
 <script>
     var aberto = false;
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
-
         if( aberto == false)
         {
             $("#sidebar-wrapper ").css("margin-left","250px");
@@ -128,11 +130,11 @@
             
             aberto = false;
         }
-        
-        
-
     });
     </script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
 @yield('script')
 {{-- /JS --}}
 </body>
+</html>
