@@ -52,6 +52,9 @@ Route::post('/play/confirma', [QuizController::class, 'corfirma_resposta'])
 Route::post('/pesquisa', [QuizController::class, 'pesquisar'])
     ->name('pesquisa')->middleware(['auth']);
 
+Route::get('/listar', [QuizController::class, 'lista'])
+    ->name('lista');
+
 
     Route::prefix('questoes')->middleware(['auth'])->group(function () {
         Route::get('/',             [QuestoesController::class, 'index'])
