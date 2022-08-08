@@ -43,6 +43,7 @@ html {
 body {
   margin: 0; /* 1 */
   line-height: inherit; /* 2 */
+  background-image: url('/img/fundo-hexagon.jpg') !important;
 }
 
 /*
@@ -905,6 +906,11 @@ select {
   --tw-bg-opacity: 1;
   background-color: #4d7290 !important;
 }
+
+.bg-imagem{
+  background-image: url('/img/fundo-card2.png') !important;
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-image: url('/img/background-blue.png');
@@ -1437,7 +1443,7 @@ select {
   }
 
 .card {
-  border-radius: 10% !important;
+  border-radius: 20% !important;
 }
 
 }

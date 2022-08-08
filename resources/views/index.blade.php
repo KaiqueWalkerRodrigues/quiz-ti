@@ -31,8 +31,8 @@
             </style>
             @foreach ($quiz as $q)
             <div class="col-md-4 mt-5 text-center">
-                <div class="card text-center" style="width: 19rem; height: 26rem;" id="degrade-1">
-                    <div class="card carde ms-4 mt-4" style="width: 16rem; height: 23rem; bg-white">
+                <div class="card text-center bg-imagem" style="width: 19rem; height: 26rem;" id="degrade-1">
+                    <div class="card carde ms-4 mt-4" style="width: 16rem; height: 23rem;">
                     <div class="card-body">
                       <h5 class="card-title">{{ $q->titulo }}</h5>
                       <p class="card-text">{{ $q->descricao}}</p>
