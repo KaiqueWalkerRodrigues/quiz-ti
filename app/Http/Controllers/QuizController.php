@@ -234,4 +234,21 @@ class QuizController extends Controller
         };
     }
 
+    public function pesquisar(request $search)
+    {
+        $pesquisado = $search->search;
+        $quiz = Quiz::where('titulo','like','%'.$pesquisado.'%')->get();
+        $qtd = $quiz->count();
+
+        if($qtd >= 1)
+            return view('pesquisa')
+                ->with(compact('quiz'));
+        else{
+            return redirect() 
+                ->route('index')
+                ->with('danger','Nenhum quiz foi encontrado com esse nome.');
+        }
+
+    }
+
 }

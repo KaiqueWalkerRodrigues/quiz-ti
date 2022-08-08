@@ -11,6 +11,7 @@
         <br>
         <h3>{{$user->name}}</h3>
         <p><b class="text-success">{{$user->points}}</b> Pontos</p>
-    </div>
+        <a href="{{ route('avatar.edit', ['id'=>Auth::user()->id]) }}" class="btn btn-primary">Alterar Avatar</a>
+    </div> 
 
 @endsection

@@ -49,6 +49,9 @@ Route::get('/play/{id}/', [QuizController::class, 'play'])
 Route::post('/play/confirma', [QuizController::class, 'corfirma_resposta'])
     ->name('corfirma_resposta')->middleware(['auth']);
 
+Route::post('/pesquisa', [QuizController::class, 'pesquisar'])
+    ->name('pesquisa')->middleware(['auth']);
+
 
     Route::prefix('questoes')->middleware(['auth'])->group(function () {
         Route::get('/',             [QuestoesController::class, 'index'])
@@ -104,8 +107,12 @@ Route::post('/play/confirma', [QuizController::class, 'corfirma_resposta'])
     Route::prefix('user')->middleware(['auth'])->group(function () {
         Route::get('/rank',             [UserController::class, 'index'])
                                     ->name('user.index');
-        Route::get('/{name}/{id}',             [UserController::class, 'show'])
+        Route::get('/{id}',      [UserController::class, 'show'])
                                     ->name('user.show');
+        Route::get('/{id}/editar',      [UserController::class, 'editavatar'])
+                                    ->name('avatar.edit');
+        Route::post('/{id}/atualizar',   [UserController::class, 'updateavatar'])
+                                    ->name('avatar.update');
     });
 
 require __DIR__.'/auth.php';

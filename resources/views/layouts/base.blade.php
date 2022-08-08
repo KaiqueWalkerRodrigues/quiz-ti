@@ -25,27 +25,33 @@
             <nav id="menu" class="navbar">
                 <div class="container-fluid">
                     <a id="name-site" class="navbar-brand"><img src="../../img/LOGO.png" alt="" width="30" height="30" class="d-inline-block align-text-top"></a>
-                        <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"> <i id="icon" class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"><i id="icon" class="fa-solid fa-arrow-right"></i></a>
           
         <style>
-            .pesquisa{
-                margin-right: 500px
+            #pesquisa{
+                margin-left: 450px;
+            }
+            #search{
+                margin-right:625px !important;
             }
             .user{
-                margin-right: 25px
+                margin-right: 25px;
             }
             .avatar{
                 height: 25px;
             }
         </style>
-          <form id="search" class="d-flex pesquisa" role="search">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" aria-label="Search">
-            <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i></button>
+
+        <form action="{{ route('pesquisa') }}" method="POST">
+            @csrf
+            <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" id="search" name="search">
+            <button class="btn btn-outline-info" type="submit" id="pesquisa"><i class="bi bi-search"></i></button>
         </form>
+
         <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle user" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></button>
             <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="{{ route('user.show',['id'=>Auth::user()->id,'name'=>Auth::user()->name]) }}">Meu Perfil</a></li>
+              <li><a class="dropdown-item" href="{{ route('user.show',['id'=>Auth::user()->id]) }}">Meu Perfil</a></li>
               <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
             </ul>
         </div>
@@ -60,12 +66,6 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-            {{-- <li class="sidebar-brand">
-                <a href="#">
-                  <img src="..." alt="" width="30" height="24" class="d-inline-block align-text-top">
-                  <i class="fa-solid fa-bars"></i> <span> Menu </span> 
-                </a>
-            </li> --}}
             <br>
             <li>
                 <a href="{{ route('index') }}"><i class="fa-solid fa-border-all"></i><span>Todos os temas</span></a>
