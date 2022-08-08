@@ -30,7 +30,7 @@
                 }
             </style>
             @foreach ($quiz as $q)
-            <div class="col-md-3 mt-5 text-center">
+            <div class="col-md-4 mt-5 text-center">
                 <div class="card" style="width: 19rem; height: 26rem;" id="degrade-1">
                     <div class="card ms-4 mt-4" style="width: 16rem; height: 23rem; bg-white">
                     <div class="card-body">
