@@ -39,12 +39,12 @@
                       <div>
                       <footer>
                     @if(Auth::user()->id != $q->id_user or Auth::user()->id == 3)
-                        <a href="{{ route('play', ['id'=>$q->id_quiz]) }}" class="btn btn-dark"><i class="bi bi-controller"></i></a>
+                        <a href="{{ route('play', ['id'=>$q->id_quiz]) }}" class="btn btn-dark rounded-circle"><i class="bi bi-controller"></i></a>
                     @endif
                     @if(Auth::user()->id == $q->id_user or Auth::user()->id == 3)
-                        <a href="{{ route('show', ['id'=>$q->id_quiz]) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{ route('edit', ['id'=>$q->id_quiz]) }}" class="btn btn-secondary"><i class="fa-solid fa-wrench"></i></a>
-                        <a href="{{ route('destroy', ['id'=>$q->id_quiz]) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                        <a href="{{ route('show', ['id'=>$q->id_quiz]) }}" class="btn btn-primary rounded-circle"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{ route('edit', ['id'=>$q->id_quiz]) }}" class="btn btn-secondary rounded-circle"><i class="fa-solid fa-wrench"></i></a>
+                        <a href="{{ route('destroy', ['id'=>$q->id_quiz]) }}" class="btn btn-danger rounded-circle"><i class="fa-solid fa-trash-can"></i></a>
                     @endif
                     </footer>
                     </div>

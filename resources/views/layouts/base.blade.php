@@ -27,9 +27,8 @@
 
             <nav id="menu" class="navbar">
                 <div class="container-fluid">
-                    <a id="name-site" class="navbar-brand"><img src="../../img/LOGO.png" alt="" width="30" height="30" class="d-inline-block align-text-top"></a>
+                    <a id="name-site" class="navbar-brand" href="{{ route('index')}}"><img src="../../img/LOGO.png" alt="" width="40" height="40" class="d-inline-block align-text-top">QUIZ-T.I</a>
                         <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"><i id="icon" class="fa-solid fa-arrow-right"></i></a>
-          
         <style>
             #pesquisa{
                 margin-left: 450px;
