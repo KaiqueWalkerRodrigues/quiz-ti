@@ -25,8 +25,8 @@
 
         <div class="row g-3">
             <div class="col-md-4">
-                <label for="titulo" class="form-label">Titulo do Quiz *</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" value="{{ $quiz ? $quiz->titulo : '' }}" required>
+                <label for="titulo" class="form-label">Titulo do Quiz*</label>
+                <input type="text" class="form-control" maxlength="45" id="titulo" name="titulo" value="{{ $quiz ? $quiz->titulo : '' }}" required>
             </div>
             <div class="col-md-2">
                 <label for="id_categoria" class="form-label">Categoria *</label>

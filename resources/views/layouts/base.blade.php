@@ -16,12 +16,15 @@
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- /CSS --}}
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
     {{-- Local --}}
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="page-top">
         <div class="row">
+
             <nav id="menu" class="navbar">
                 <div class="container-fluid">
                     <a id="name-site" class="navbar-brand"><img src="../../img/LOGO.png" alt="" width="30" height="30" class="d-inline-block align-text-top"></a>
@@ -119,20 +122,22 @@
          <br>
          <br>
          @yield('conteudo')
+         <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
          {{-- /CONTEUDO --}}
     </div>
 </div>
 </div>
-
+</body>
 {{-- JS --}}
-<script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 <!-- Menu Toggle Script -->
 <script>
     var aberto = false;
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
-
         if( aberto == false)
         {
             $("#sidebar-wrapper ").css("margin-left","250px");
@@ -158,11 +163,11 @@
             
             aberto = false;
         }
-        
-        
-
     });
     </script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
 @yield('script')
 {{-- /JS --}}
 </body>
+</html>

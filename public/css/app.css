@@ -903,11 +903,11 @@ select {
 }
 .bg-white {
   --tw-bg-opacity: 1;
-  background-image: linear-gradient(#e178b3, #7d73f3);
+  background-color: #4d7290 !important;
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
-  background-image: url('/img/planodefundo.png');
+  background-image: url('/img/background-blue.png');
 }
 .bg-gray-800 {
   --tw-bg-opacity: 1;
@@ -919,7 +919,12 @@ select {
 }
 
 #degrade-1{
-  background-image: linear-gradient(#e178b3, #7d73f3);
+  background-color: #0d2f4b;
+}
+
+#botaonovo{
+  background-color: #0d2f4b;
+  color: white !important;
 }
 
 .fill-current {
@@ -1282,6 +1287,31 @@ select {
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
 }
+/* Botão para retornar ao topo */
+.scroll-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(90, 92, 105, 0.5);
+  line-height: 46px;
+}
+
+.scroll-to-top:focus, .scroll-to-top:hover {
+  color: white;
+}
+
+.scroll-to-top:hover {
+  background: #5a5c69;
+}
+
+.scroll-to-top i {
+  font-weight: 800;
+}
 @media (prefers-color-scheme: dark) {
 
   .dark\:border-gray-700 {
@@ -1312,6 +1342,18 @@ select {
   .dark\:text-gray-400 {
     --tw-text-opacity: 1;
     color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+  
+  .scroll-to-top:focus, .scroll-to-top:hover {
+    color: white;
+  }
+  
+  .scroll-to-top:hover {
+    background: #5a5c69;
+  }
+  
+  .scroll-to-top i {
+    font-weight: 800;
   }
 }
 @media (min-width: 640px) {
@@ -1393,6 +1435,11 @@ select {
   .sm\:text-right {
     text-align: right;
   }
+
+.card {
+  border-radius: 10% !important;
+}
+
 }
 @media (min-width: 768px) {
 

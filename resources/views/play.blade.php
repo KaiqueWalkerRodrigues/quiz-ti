@@ -63,22 +63,6 @@
                     @php
                         $n++
                     @endphp
-
-                {{--
-                    <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-                    <label class="btn btn-outline-success" for="success-outlined">Checked success radio</label>
-
-                    <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                    <label class="btn btn-outline-danger" for="danger-outlined">Danger radio</label>
-                --}}
-
-                {{-- <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ $n }}" value="{{ $indice }}">
-                    <label class="form-check-label" for="flexRadioDefault{{ $n }}">
-                        {{ $respostas[$indice] }}
-                    </label>
-                </div> --}}
-
                 @endforeach
 
                 <br>
