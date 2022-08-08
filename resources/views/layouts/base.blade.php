@@ -69,8 +69,7 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-<<<<<<< Updated upstream
-=======
+
             {{-- <li class="sidebar-brand">
                 <a href="#">
                   <img src="..." alt="" width="30" height="24" class="d-inline-block align-text-top">
@@ -93,7 +92,9 @@
                     <a href="{{ route('logout') }}"><i class="fa-solid fa-door-open"></i><span>Logout</span></a>
                 </li>
             }
->>>>>>> Stashed changes
+            @endif
+            
+
             <br>
             <li>
                 <a href="{{ route('index') }}"><i class="fa-solid fa-border-all"></i><span>Todos os temas</span></a>
@@ -165,8 +166,6 @@
         }
     });
     </script>
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
 @yield('script')
 {{-- /JS --}}
 </body>

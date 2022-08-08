@@ -30,6 +30,7 @@
             </style>
             @foreach ($categorias as $cat)
                 <h3 class="mt-5">{{$cat->categoria}}</h3>
+                <hr>
                 @foreach ($quiz->where('id_categoria',$cat->id_categoria) as $q)
                 <div class="col-md-4 mt-5 text-center">
                     <div class="card" style="width: 19rem; height: 26rem;" id="degrade-1">
