@@ -19,7 +19,7 @@
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
     {{-- Local --}}
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <div class="container" id="page-top">
@@ -76,27 +76,9 @@
                 </a>
             </li> --}}
 
-            @if(Auth::user()->id == 3)
-            {
-                <li>
-                    <a href="{{ route('index') }}"><i class="fa-solid fa-question"></i></i><span>Quiz</span></a>
-                </li>
-                <li>
-                    <a href="{{ route('categorias.index') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>
-                </li>
-                <li>
-                    <a href="{{ route('user.index') }}"><i class="fa-solid fa-crown"></i><span>Rank</span></a>
-                </li>
-                <li>
-                    <a href="{{ route('logout') }}"><i class="fa-solid fa-door-open"></i><span>Logout</span></a>
-                </li>
-            }
-            @endif
-            
-
             <br>
             <li>
-                <a href="{{ route('index') }}"><i class="fa-solid fa-border-all"></i><span>Todos os temas</span></a>
+                <a href="{{ route('index') }}"><i class="fa-solid fa-question"></i><span>Quiz</span></a>
             </li>
             <li>
                 <a href="{{ route('lista') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>
@@ -104,13 +86,16 @@
             <li>
                 <a href="{{ route('user.index') }}"><i class="fa-solid fa-crown"></i><span>Rank</span></a>
             </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
-            </li>
+
             @if(Auth::user()->id == 3)
-            <li>
-                <a href="{{ route('categorias.index') }}"><i class="bi bi-card-list"></i></a>
-            </li>
+            {
+                <li>
+                    <a href="{{ route('categorias.index') }}"><i class="fa-solid fa-c"></i><span>Categorias ADM</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('logout') }}"><i class="fa-solid fa-door-open"></i><span>Logout</span></a>
+                </li>
+            }
             @endif
             
         </ul>

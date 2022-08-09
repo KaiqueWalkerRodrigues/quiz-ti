@@ -5,9 +5,9 @@
     <br>
 
     @if($quiz)
-        <h1>Editar Quiz: {{ $quiz->id_quiz }}</h1>
+        <h1 class="text-light">Editar Quiz: {{ $quiz->titulo }}</h1>
     @else
-        <h1>Novo Quiz</h1>
+        <h1 class="text-light">Novo Quiz</h1>
     @endif
 
     <br>
@@ -25,11 +25,11 @@
 
         <div class="row g-3">
             <div class="col-md-4">
-                <label for="titulo" class="form-label">Titulo do Quiz*</label>
+                <label for="titulo" class="form-label text-light">Titulo do Quiz*</label>
                 <input type="text" class="form-control" maxlength="45" id="titulo" name="titulo" value="{{ $quiz ? $quiz->titulo : '' }}" required>
             </div>
             <div class="col-md-2">
-                <label for="id_categoria" class="form-label">Categoria *</label>
+                <label for="id_categoria" class="form-label text-light">Categoria *</label>
                 <select name="id_categoria" id="id_categoria" class="form-control">
                     @if($quiz)
                         <option value="{{ $quiz->id_categoria }}" selected="selected">{{ $categoria->categoria }}</option>
@@ -47,7 +47,7 @@
             </div>
                 <input type="hidden" class="form-control" id="id_user" name="id_user" value="{{ $user->id }}" required>
             <div class="col-md-4">
-                <label for="descricao" class="form-label">Descrição</label>
+                <label for="descricao" class="form-label text-light">Descrição</label>
                 <textarea name="descricao" id="descricao" name="descricao" cols="30" rows="3" class="form-control">{{ $quiz ? $quiz->descricao : '' }}</textarea>
             </div>
             <div class="col-md-2 offset-md-8 text-end">

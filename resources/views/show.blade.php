@@ -8,12 +8,12 @@
         <a href="{{ route('index') }}" class="btn btn-outline-info"><i class="fa-solid fa-backward"></i></a>
         <br>
         <br>
-        <h4>Quiz - {{ $quiz->titulo }}</h4>
+        <h4 class="text-light">Quiz - {{ $quiz->titulo }}</h4>
         <br>
-        <p> {{ $quiz->descricao }} </p>
+        <p class="text-light"> {{ $quiz->descricao }} </p>
         
         <div class="col-md-8 offset-md-2">
-            <table class="table table-hover">
+            <table class="table text-light">
                 <thead>
                     <th>Ações</th>
                     <th>Titulo</th>
@@ -45,7 +45,7 @@
             <input type="hidden" name="id_quiz" id="id_quiz" value="{{ $quiz->id_quiz }}">
             <div class="row g-3">
                 <div class="col-md-6">
-                    <label for="titulo" class="form-label">Titulo da Questão*</label>
+                    <label for="titulo" class="form-label text-light">Titulo da Questão*</label>
                     <input type="text" class="form-control" id="titulo" name="titulo" maxlength="100" placeholder="Digite a questão">
                 </div>
             </div>

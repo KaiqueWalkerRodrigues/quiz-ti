@@ -3,11 +3,15 @@
 @endsection
 @section('conteudo')
 
+        @if(Auth::user()->id != 3)
+            @php return redirect()->back(); @endphp
+        @endif
+
         <br>
             <a href="{{ route('index') }}" class="btn btn-outline-info"><i class="fa-solid fa-backward"></i></a>
         <br>
 
-        <h4 class="text-center">Cadastro de Nova Categoria</h4>
+        <h4 class="text-center text-light">Cadastro de Nova Categoria</h4>
 
         <br><br>
 
@@ -20,7 +24,7 @@
             @csrf
                 <div class="row offset-md-4">
                     <div class="col-md-4">
-                        <label for="categoria" class="form-label">Nome Da Categoria *</label>
+                        <label for="categoria" class="form-label text-light">Nome Da Categoria *</label>
                         <input type="text" name="categoria" id="categoria" class="form-control" value="@if($cat != '') {{ $cat->categoria }} @endif">
                     </div>
                     <div class="col-md-4">
@@ -37,7 +41,7 @@
 
         <div class="col-md-8 offset-md-2">
 
-            <table class="table">
+            <table class="table text-light">
                 <thead>
                     <tr>
                         <th scope="col">Ações</th>

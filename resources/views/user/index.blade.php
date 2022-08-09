@@ -9,7 +9,7 @@
             <br>
                 <div class="alert alert-primary text-center">Seus Pontos: <b class="@if(Auth::user()->points < 1) text-danger @else text-success @endif">{{ Auth::user()->points }}</b></div>
             <br>
-            <table class="table table-striped table-hover text-center">
+            <table class="table text-center text-light">
                 <thead class="table-dark">
                     <tr>
                         <th class="col-2">TOP</th>

@@ -8,7 +8,7 @@
         <a href="{{ route('show', ['id'=>$questao->id_quiz]) }}" class="btn btn-outline-info"><i class="fa-solid fa-backward"></i></a>
         <br>
         <br>
-        <h4 class="text-center">{{ $questao->titulo }}</h4>
+        <h4 class="text-center text-light">{{ $questao->titulo }}</h4>
 
     <br>
 
@@ -18,7 +18,7 @@
 
             <div class="row g-3 offset-md-2">
                 <div class="col-md-8">
-                    <label for="titulo" class="form-label">Título da Questão *</label>
+                    <label for="titulo" class="form-label text-light">Título da Questão *</label>
                     <input type="text" class="form-control" id="titulo" name="titulo" value="{{ $questao->titulo }}" required>
                 </div>
                 {{-- <div class="col-md-6"></div> --}}
@@ -36,7 +36,7 @@
         <br>
         
         <div class="col-md-5 offset-md-3 text-center">
-            <table class="table table-hover">
+            <table class="table text-light">
                 <thead>
                     <th>Resposta</th>
                     <th><i class="fa-solid fa-check"></i> ou <i class="fa-solid fa-x"></i></th>
@@ -58,7 +58,7 @@
         <br>
         <hr>
         <br>
-        <h3 class="text-center">Cadastro de Respostas</h3>
+        <h3 class="text-center text-light">Cadastro de Respostas</h3>
         
         <br>
 
@@ -68,7 +68,7 @@
 
             <div class="row g-3 offset-md-2">
                 <div class="col-md-6">
-                    <label for="resposta" class="form-label">Resposta *</label>
+                    <label for="resposta" class="form-label text-light">Resposta *</label>
                     <textarea name="resposta" id="resposta" cols="30" rows="4" class="form-control"></textarea>
                 </div>
                 @if ( $questao->resposta()->where('certa',1)->count() == 0)
