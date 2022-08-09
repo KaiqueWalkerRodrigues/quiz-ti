@@ -7,7 +7,7 @@
     <a href="{{ route('index') }}" class="btn btn-outline-info"><i class="fa-solid fa-backward"></i></a>
     <br>
     <br>
-    <h4>Alterando Avatar</h4>
+    <h4 class="text-light">Alterando Avatar</h4>
     <br>
     <form action="{{ route('avatar.update',['id'=>Auth::user()->id]) }}" method="post">
         @csrf
