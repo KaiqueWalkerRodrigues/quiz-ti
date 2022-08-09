@@ -78,7 +78,7 @@
 
             <br>
             <li>
-                <a href="{{ route('index') }}"><i class="fa-solid fa-question"></i><span>Quiz</span></a>
+                <a href="{{ route('index') }}"><i class="bi bi-controller"></i><span>Quiz</span></a>
             </li>
             <li>
                 <a href="{{ route('lista') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>

@@ -19,7 +19,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $quiz = Quiz::all();
+        $quiz = Quiz::Orderby('created_at','asc')->get();
         $categorias = Categorias::all();
         return view('index')
             ->with(compact('quiz','categorias'));
@@ -47,6 +47,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
+        // $id_usuario = Auth::user()->id;
         $quiz = new Quiz($request->all());
         $quiz->save();
 

@@ -27,6 +27,9 @@
             <button type="submit" class="btn btn-success col-md-2 offset-md-10">Alterar Avatar</button>
         </div>
 
+        <br>
+
+
     </form>
 
 @endsection

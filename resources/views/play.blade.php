@@ -56,9 +56,15 @@
 
         @else
             <div class="alert alert-success">
-                PARABÉNS VOCÊ FINALIZOU O QUIZ!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                PARABÉNS VOCÊ FINALIZOU ESTE QUIZ!!!
+                <br>
+                Estamos te levando de volta!
             </div>
+            <script>
+            setTimeout(function(){
+               window.location.href = 'http://localhost:8000/';
+            }, 8000);
+            </script>
         @endif
 
     </div>
