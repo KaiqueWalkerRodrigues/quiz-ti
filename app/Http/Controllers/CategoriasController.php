@@ -104,4 +104,5 @@ class CategoriasController extends Controller
         return redirect()
             ->back();
     }
+
 }

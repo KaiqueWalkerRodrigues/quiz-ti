@@ -68,12 +68,38 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
+
+            {{-- <li class="sidebar-brand">
+                <a href="#">
+                  <img src="..." alt="" width="30" height="24" class="d-inline-block align-text-top">
+                  <i class="fa-solid fa-bars"></i> <span> Menu </span> 
+                </a>
+            </li> --}}
+
+            @if(Auth::user()->id == 3)
+            {
+                <li>
+                    <a href="{{ route('index') }}"><i class="fa-solid fa-question"></i></i><span>Quiz</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('categorias.index') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('user.index') }}"><i class="fa-solid fa-crown"></i><span>Rank</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('logout') }}"><i class="fa-solid fa-door-open"></i><span>Logout</span></a>
+                </li>
+            }
+            @endif
+            
+
             <br>
             <li>
                 <a href="{{ route('index') }}"><i class="fa-solid fa-border-all"></i><span>Todos os temas</span></a>
             </li>
             <li>
-                <a href="{{ route('categorias.index') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>
+                <a href="{{ route('lista') }}"><i class="fa-solid fa-c"></i><span>Categorias</span></a>
             </li>
             <li>
                 <a href="{{ route('user.index') }}"><i class="fa-solid fa-crown"></i><span>Rank</span></a>
@@ -81,6 +107,11 @@
             <li>
                 <a href="#"><i class="fa-solid fa-arrow-rotate-right"></i><span> Outros </span></a>
             </li>
+            @if(Auth::user()->id == 3)
+            <li>
+                <a href="{{ route('categorias.index') }}"><i class="bi bi-card-list"></i></a>
+            </li>
+            @endif
             
         </ul>
     </div>
@@ -134,8 +165,6 @@
         }
     });
     </script>
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
 @yield('script')
 {{-- /JS --}}
 </body>

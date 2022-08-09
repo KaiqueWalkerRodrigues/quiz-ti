@@ -248,7 +248,15 @@ class QuizController extends Controller
                 ->route('index')
                 ->with('danger','Nenhum quiz foi encontrado com esse nome.');
         }
+    }
 
+    public function lista()
+    {
+        $categorias = Categorias::all();
+        $quiz = Quiz::all();
+
+        return  view('listar')
+            ->with(compact('categorias','quiz'));
     }
 
 }
