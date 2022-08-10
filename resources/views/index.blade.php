@@ -36,7 +36,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ $q->titulo }}</h5>
                       <p class="card-text">{{ $q->descricao}}</p>
-                      <div>
+                    <div>
                       <footer>
                     @if(Auth::user()->id != $q->id_user or Auth::user()->id == 3)
                         <a href="{{ route('play', ['id'=>$q->id_quiz]) }}" class="btn btn-dark rounded-circle"><i class="bi bi-controller"></i></a>

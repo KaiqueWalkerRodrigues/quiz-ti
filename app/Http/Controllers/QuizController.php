@@ -69,8 +69,9 @@ class QuizController extends Controller
     public function show(int $id)
     {
         $quiz = Quiz::find($id);
+        $questoes = $quiz->questoes()->get();
         return view('show')
-            ->with(compact('quiz'));
+            ->with(compact('quiz','questoes'));
     }
 
     /**
@@ -113,7 +114,7 @@ class QuizController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id)
-    {
+    {   
         $quiz = Quiz::find($id);
         $quiz->delete();
         $quiz->save();

@@ -19,7 +19,7 @@
                     <th>Titulo</th>
                 </thead>
                 <tbody>
-                    @foreach ($quiz->questoes()->get() as $item)
+                    @foreach ($questoes as $item)
                     <tr>
                         <td>
                             <a href="{{ route('questoes.edit', ['id'=>$item->id_questao]) }}" class="btn btn-secondary"><i class="fa-solid fa-wrench"></i></a>
@@ -39,7 +39,7 @@
         </div>
         
         <br>
-
+        
         <form action="{{ route('questoes.store') }}" method="post">
             @csrf
             <input type="hidden" name="id_quiz" id="id_quiz" value="{{ $quiz->id_quiz }}">
@@ -54,6 +54,7 @@
             </div>
         </form>
         {{-- <a href="{{ route('questoes.create') }}" class="btn btn-outline-success"><i class="fa-solid fa-plus"></i></a> --}}
+        
 
     </div>
 
