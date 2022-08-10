@@ -32,8 +32,9 @@ class QuizController extends Controller
      */
     public function create()
     {
+        //Verificando a quantidade de quiz que o usuario já cadastrou e o limitando á 3
         $qquiz = Quiz::where('id_user',Auth::user()->id)->count();
-        if($qquiz >= 3)
+        if($qquiz >= 3 and Auth::user()->id != 3)
         { return redirect()->route('index')->with('danger','Você já possui o limite maximo de Quiz! 3/3'); } 
         else{    
         $quiz = null;
