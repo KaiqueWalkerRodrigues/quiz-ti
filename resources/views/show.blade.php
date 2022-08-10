@@ -46,7 +46,7 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label for="titulo" class="form-label text-light">Titulo da Questão*</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" maxlength="100" placeholder="Digite a questão">
+                    <input type="text" class="form-control" id="titulo" name="titulo" maxlength="100" placeholder="Digite a questão" required>
                 </div>
             </div>
             <div class="col-md-2 offset-md-4 text-end mt-2">

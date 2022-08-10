@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-2">
                 <label for="id_categoria" class="form-label text-light">Categoria *</label>
-                <select name="id_categoria" id="id_categoria" class="form-control">
+                <select name="id_categoria" id="id_categoria" class="form-control" required>
                     @if($quiz)
                         <option value="{{ $quiz->id_categoria }}" selected="selected">{{ $categoria->categoria }}</option>
                         @foreach ($categorias->where('id_categoria','!=',$categoria->id_categoria) as $c)

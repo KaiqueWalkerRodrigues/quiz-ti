@@ -69,7 +69,7 @@
             <div class="row g-3 offset-md-2">
                 <div class="col-md-6">
                     <label for="resposta" class="form-label text-light">Resposta *</label>
-                    <textarea name="resposta" id="resposta" cols="30" rows="4" class="form-control"></textarea>
+                    <textarea name="resposta" id="resposta" cols="30" rows="4" class="form-control" required></textarea>
                 </div>
                 @if ( $questao->resposta()->where('certa',1)->count() == 0)
                     <div class="col-md-2">
