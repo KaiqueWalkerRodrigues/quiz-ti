@@ -38,7 +38,7 @@ class QuizController extends Controller
         { return redirect()->route('index')->with('danger','Você já possui o limite maximo de Quiz! 3/3'); } 
         else{    
         $quiz = null;
-        $categoria = Categorias::all();
+        $categoria = Categorias::Orderby('categoria','asc')->get();
         $user = Auth::user();
         return view('form')
             ->with(compact('quiz','categoria','user','qquiz'));

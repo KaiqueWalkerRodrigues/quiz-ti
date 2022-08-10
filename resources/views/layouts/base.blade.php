@@ -86,6 +86,9 @@
             <li>
                 <a href="{{ route('user.index') }}"><i class="fa-solid fa-crown"></i><span>Rank</span></a>
             </li>
+            <li>
+                <a href="{{ route('quem-somos') }}"><i class="bi bi-people-fill"></i><span>Quem Somos</span></a>
+            </li>
 
             @if(Auth::user()->id == 3)
             {
@@ -114,6 +117,16 @@
     </div>
 </div>
 </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
 </body>
 {{-- JS --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
