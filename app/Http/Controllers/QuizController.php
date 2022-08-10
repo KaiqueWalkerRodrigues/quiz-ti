@@ -32,11 +32,16 @@ class QuizController extends Controller
      */
     public function create()
     {
+        $qquiz = Quiz::where('id_user',Auth::user()->id)->count();
+        if($qquiz >= 3)
+        { return redirect()->route('index')->with('danger','Você já possui o limite maximo de Quiz! 3/3'); } 
+        else{    
         $quiz = null;
         $categoria = Categorias::all();
         $user = Auth::user();
         return view('form')
-            ->with(compact('quiz','categoria','user'));
+            ->with(compact('quiz','categoria','user','qquiz'));
+        }
     }
 
     /**

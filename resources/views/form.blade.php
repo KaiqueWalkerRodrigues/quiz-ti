@@ -2,6 +2,7 @@
 @section('menu')
 @endsection
 @section('conteudo')
+
     <br>
 
     @if($quiz)
