@@ -44,7 +44,7 @@
                 <div class="card-body">
                 <h5 class="card-title">Richard Camargo</h5>
                 <p class="card-text">Web Designer</p>
-                <a href="http://pudim.com.br/" target="_blank" class="btn btn-outline-info text-decoration-line-through">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/richard-camargo-690850235/" target="_blank" class="btn btn-outline-info">LinkedIn</a>
                 <a href="https://github.com/RichardCSNZ" target="_blank" class="btn btn-secondary">GitHub</a>
                 </div>
             </div>
