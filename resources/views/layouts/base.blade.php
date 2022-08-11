@@ -31,10 +31,10 @@
                         <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"><i id="icon" class="fa-solid fa-arrow-right"></i></a>
         <style>
             #pesquisa{
-                margin-left: 450px;
+                margin-left: 550px;
             }
             #search{
-                margin-right:1200px !important; 
+                margin-left:100px !important; 
             }
             .user{
                 margin-right: 25px;
@@ -52,10 +52,10 @@
 
         <form action="{{ route('pesquisa') }}" method="POST">
             @csrf
-            <div class="pesquisa">
+            {{-- <div class="pesquisa"> --}}
                 <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" id="search" name="search">
                 <button class="btn btn-outline-info" type="submit" id="pesquisa"><i class="bi bi-search"></i></button>
-            </div>
+            {{-- </div> --}}
         </form>
 
         <div class="dropdown">
@@ -85,6 +85,9 @@
             </li> --}}
 
             <br>
+            <li>
+                <p class="text-light d-none ml-3 mt-3" id="tab">Olá, <b class="text-decoration-underline">{{ Auth::user()->name }}</b>!</p>
+            </li>
             <li>
                 <a href="{{ route('index') }}"><i class="bi bi-controller"></i><span>Quiz</span></a>
             </li>
@@ -154,6 +157,7 @@
             $(".sidebar-nav li span").css("display", "inline-block");
             $(".sidebar-nav li").css("margin-left", "0px");
             $(".sidebar-nav li").css("text-align", "left");
+            $("#tab").removeClass("d-none");
             aberto = true;
         }
         else
@@ -166,7 +170,7 @@
             $(".sidebar-nav li span").css("display", "none");
             $(".sidebar-nav li").css("margin-right", "30px");
             $(".sidebar-nav li").css("text-align", "right");
-            
+            $("#tab").addClass("d-none");
             aberto = false;
         }
     });
