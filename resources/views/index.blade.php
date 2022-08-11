@@ -46,7 +46,7 @@
                         <a href="{{ route('edit', ['id'=>$q->id_quiz]) }}" class="btn btn-secondary rounded-circle"><i class="fa-solid fa-wrench"></i></a>
                         {{-- <a href="{{ route('destroy', ['id'=>$q->id_quiz]) }}" class="btn btn-danger rounded-circle"><i class="fa-solid fa-trash-can"></i></a> --}}
                         {{-- Modal --}}
-                        <button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#exampleModal" data-nome="(!) Deseja mesmo excluir o quiz : {{ $q->titulo }}" data-url="{{ route('destroy', ['id'=>$q->id_quiz]) }}">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                         
@@ -66,19 +66,34 @@
             <br>
             <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">(!) Deseja mesmo excluir o quiz : {{$q->titulo}}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                Isso excluirá o quiz permanentemente, está de acordo com tal ato?
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <a href="{{ route('destroy',['id'=>$q->id_quiz]) }}" class="btn btn-danger">Excluir</a>
-                </div>
+                <form action="" method="GET" id="excluir">
+                    @csrf
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    Isso excluirá o quiz permanentemente, está de acordo com tal ato?
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    </div>
+                </form>
             </div>
             </div>
         </div>
     
+@endsection
+@section('script')
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            let button = $(event.relatedTarget)
+            let nome = button.data('nome')
+            let url = button.data('url')
+            console.log(url)
+            $('#exampleModalLabel').text(nome)
+            $('#excluir').attr('action', url)
+        })
+    </script>
 @endsection

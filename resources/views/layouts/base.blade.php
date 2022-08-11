@@ -34,20 +34,28 @@
                 margin-left: 450px;
             }
             #search{
-                margin-right:625px !important;
+                margin-right:1200px !important; 
             }
             .user{
                 margin-right: 25px;
+                margin-left: 200px;
             }
             .avatar{
                 height: 25px;
+            }
+            .ola{
+                float: left;
+                margin-top: 8px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
             }
         </style>
 
         <form action="{{ route('pesquisa') }}" method="POST">
             @csrf
-            <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" id="search" name="search">
-            <button class="btn btn-outline-info" type="submit" id="pesquisa"><i class="bi bi-search"></i></button>
+            <div class="pesquisa">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar por nome de Quiz" id="search" name="search">
+                <button class="btn btn-outline-info" type="submit" id="pesquisa"><i class="bi bi-search"></i></button>
+            </div>
         </form>
 
         <div class="dropdown">
