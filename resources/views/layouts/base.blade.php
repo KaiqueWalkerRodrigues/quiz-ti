@@ -31,14 +31,14 @@
                         <a href="#menu-toggle" class="btn btn-outline-info" id="menu-toggle"><i id="icon" class="fa-solid fa-arrow-right"></i></a>
         <style>
             #pesquisa{
-                margin-left: 550px;
+                margin-left: 450px;
             }
             #search{
-                margin-left:100px !important; 
+                margin-left:0px !important; 
             }
             .user{
                 margin-right: 25px;
-                margin-left: 200px;
+                margin-left: 50px;
             }
             .avatar{
                 height: 25px;
