@@ -144,8 +144,12 @@ class QuizController extends Controller
         ->whereNotIn('id_questao',$repetidas)
         ->inRandomOrder()
         ->first();
+
+        $qntd = Questoes::where('id_quiz',$id)
+        ->whereNotIn('id_questao',$repetidas)
+        ->count();
         
-        if ($questoes == null) {
+        if ($qntd < 1) {
             $questoes = null;
             return view('play', ['id'=>$id])
                 ->with(compact('questoes'));
@@ -177,17 +181,6 @@ class QuizController extends Controller
        }
 
        shuffle($ordem);
-        //    echo '<pre>';
-        //    echo 'Todas<br>';
-        //     print_r( $todas);       
-        //     echo '<hr>';
-        //     echo 'Respostas<br>';
-        //     print_r($respostas);
-        //     echo '<hr>';
-        //     echo 'Ordem bagunçada<br>';
-        //     print_r($ordem);
-        //     echo '<hr>';
-        //     echo 'Saida para o Quiz<br>';
 
         return view('play')
             ->with(compact('id','questoes','respostas','ordem'));
