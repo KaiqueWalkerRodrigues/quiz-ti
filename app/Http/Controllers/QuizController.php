@@ -150,7 +150,7 @@ class QuizController extends Controller
         ->count();
         
         if ($qntd < 1) {
-            $questoes = null;
+            $questoes = Questoes::where('id_quiz',$id)->get();
             return view('play', ['id'=>$id])
                 ->with(compact('questoes'));
         }else{
