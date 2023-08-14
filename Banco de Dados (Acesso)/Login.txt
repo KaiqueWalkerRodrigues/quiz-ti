@@ -1,0 +1,4 @@
+Login de Adm Aplicação: quiztiaccess@gmail.com
+Senha de Adm Aplicação: quiztiaccess
+
+Arquivo .env configurado: .env.example (Basta salvar ele como .env)
